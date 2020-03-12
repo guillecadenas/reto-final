@@ -49,10 +49,17 @@ export class OfferListComponent implements OnInit {
   // Eliminación
   deleteOffer(offer_id: number) {
     if (window.confirm("Are you sure you want to delete the selected offer?"))
+<<<<<<< HEAD
       this.offerService.deleteOffer(offer_id).subscribe(
         () => {
           this.loadList();
         }
       );
+=======
+    {
+      console.log("Eliminando oferta con id #"+offer_id);
+      this.offerService.deleteOffer(offer_id);
+    }
+>>>>>>> front_alberamon
   }
 }

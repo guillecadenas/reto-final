@@ -9,7 +9,12 @@ import { Observable } from 'rxjs';
 })
 export class OfferService {
 
+<<<<<<< HEAD
   entityUrl = environment.REST_API_URL + 'offers'; //  http://localhost:9966/petclinic/api/offers
+=======
+  //entityUrl = environment.REST_API_URL + 'offers/'; //  http://localhost:9966/petclinic/api/offers
+  entityUrl = "http://localhost:3000/offers";
+>>>>>>> front_alberamon
 
   constructor(private httpClient: HttpClient) { }
 
