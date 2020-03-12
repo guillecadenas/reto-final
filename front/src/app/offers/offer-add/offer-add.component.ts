@@ -25,8 +25,11 @@ export class OfferAddComponent implements OnInit {
   }
 
   onSubmit(Offer){
+    if(Offer.invalid){
+      return;
+    }
     console.log(this.offer);
-    this.offerService.setOffers(Offer).subscribe(
+    this.offerService.setOffers(this.offer).subscribe(
       data => {
         this.offer = data, console.log(data);
       }
