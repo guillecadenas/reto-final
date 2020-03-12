@@ -21,7 +21,7 @@
       <h2>
         New Offer
       </h2>
-      <form (ngSubmit)="onSubmit(offerForm.value)" #offerForm="ngForm" class="form-horizontal">
+      <form (ngSubmit)="onSubmit(offerForm)" #offerForm="ngForm" class="form-horizontal">
         <div class="form-group" hidden="true">
           <input type="text" hidden="true" class="form-control" id="id" [(ngModel)]="offer.id" name="id"/>
         </div>
@@ -34,19 +34,19 @@
             <span class="help-block" *ngIf="title.dirty && title.hasError('minlength')">Title must be at least 2 characters long</span>
           </div>
         </div>
-        <div class="form-group has-feedback" [class.has-success]="descripcion.dirty && lastName.valid" [class.has-error]="descripcion.dirty && !descripcion.valid">
-          <label for="descripcion" class="col-sm-2 control-label">Description</label>
+        <div class="form-group has-feedback" [class.has-success]="description.dirty && description.valid" [class.has-error]="description.dirty && !description.valid">
+          <label for="description" class="col-sm-2 control-label">Description</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" id="descripcion" [(ngModel)]="offer.descripcion" name="descripcion" minlength="2" required #descripcion="ngModel"/>
-            <span class="glyphicon form-control-feedback" [class.glyphicon-ok]="descripcion.valid" [class.glyphicon-remove]="!descripcion.valid" aria-hidden="true"></span>
-            <span class="help-block" *ngIf="descripcion.dirty && descripcion.hasError('required')">Description is required</span>
-            <span class="help-block" *ngIf="descripcion.dirty && descripcion.hasError('minlength')">Description must be at least 2 characters long</span>
+            <input type="text" class="form-control" id="descripcion" [(ngModel)]="offer.description" name="description" minlength="2" required #description="ngModel"/>
+            <span class="glyphicon form-control-feedback" [class.glyphicon-ok]="description.valid" [class.glyphicon-remove]="!description.valid" aria-hidden="true"></span>
+            <span class="help-block" *ngIf="description.dirty && description.hasError('required')">Description is required</span>
+            <span class="help-block" *ngIf="description.dirty && description.hasError('minlength')">Description must be at least 2 characters long</span>
           </div>
         </div>
         <div class="form-group has-feedback" [class.has-success]="discount.dirty && discount.valid" [class.has-error]="discount.dirty && !discount.valid">
           <label for="discount" class="col-sm-2 control-label">Discount</label>
           <div class="col-sm-10">
-            <input type="number" class="form-control" id="discount" [(ngModel)]="offer.discount" name="discount" min="1" max="2" required #discount="ngModel"/>
+            <input type="number" class="form-control" id="discount" [(ngModel)]="offer.discount" name="discount" min="1" max="100" pattern="[0-9]{1,2}" required #discount="ngModel"/>
             <span class="glyphicon form-control-feedback" [class.glyphicon-ok]="discount.valid" [class.glyphicon-remove]="!discount.valid" aria-hidden="true"></span>
             <span class="help-block" *ngIf="discount.dirty && discount.hasError('required')">Discount is required</span>
             <span class="help-block" *ngIf="discount.dirty && discount.hasError('min')">Discount must be at least 1 character number</span>

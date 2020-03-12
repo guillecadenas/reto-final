@@ -10,7 +10,13 @@ import { Offer } from '../offer';
 })
 export class OfferAddComponent implements OnInit {
 
-  offer: Offer;
+  offer: Offer = {
+    id: null,
+    title: '',
+    description: '',
+    discount: null,
+    expirationDate: null
+  };
 
   constructor(private offerService: OfferService,
               private router: Router) { }
@@ -19,6 +25,7 @@ export class OfferAddComponent implements OnInit {
   }
 
   onSubmit(Offer){
+    console.log(this.offer);
     this.offerService.setOffers(Offer).subscribe(
       data => {
         this.offer = data, console.log(data);
