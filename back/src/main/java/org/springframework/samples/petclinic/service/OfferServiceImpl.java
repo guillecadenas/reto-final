@@ -44,8 +44,8 @@ public class OfferServiceImpl implements OfferService{
 	}
 	
 	@Override
-	public List<Offer> findByExpirationDateBefore(Date fecha) throws DataAccessException {
-		List<Offer> offers=offerRepository.findByExpirationDateBefore(fecha);
+	public List<Offer> findByExpirationDateAfter(Date fecha) throws DataAccessException {
+		List<Offer> offers=offerRepository.findByExpirationDateAfter(fecha);
 		return offers;
 	}
 

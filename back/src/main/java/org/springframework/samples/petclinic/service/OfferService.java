@@ -16,7 +16,7 @@ public interface OfferService {
 
 	public List<Offer> findAll() throws DataAccessException;
 	
-	public List<Offer> findByExpirationDateBefore(Date fecha) throws DataAccessException;
+	public List<Offer> findByExpirationDateAfter(Date fecha) throws DataAccessException;
 	
 	public Offer findOfferById(int id) throws DataAccessException;
 

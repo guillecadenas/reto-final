@@ -33,7 +33,7 @@ public class OfferRestController {
 	
 	
 	@PreAuthorize( "hasRole(@roles.OWNER_ADMIN)" )
-	@RequestMapping(value = "/*", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@RequestMapping(value = "", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<List<Offer>> getOffersList() {
 		
 		List<Offer> offers = this.offerServ.findAll();
@@ -110,7 +110,7 @@ public class OfferRestController {
 	@RequestMapping(value = "/offersValid", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@Transactional
 	public ResponseEntity<List<Offer>> getOffersValid() {
-		List<Offer> offers = this.offerServ.findByExpirationDateBefore(new Date());
+		List<Offer> offers = this.offerServ.findByExpirationDateAfter(new Date());
 		if (offers.isEmpty()) {
 			return new ResponseEntity<List<Offer>>(HttpStatus.NOT_FOUND);
 		}
