@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OfferService } from '../offer.service';
 import { Offer } from '../offer';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-offer-edit',
@@ -13,7 +13,8 @@ export class OfferEditComponent implements OnInit {
   offer: Offer;
 
   constructor(private offerService: OfferService,
-              private ruta: ActivatedRoute) { }
+              private ruta: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit() {
     this.offer.id = this.ruta.snapshot.params.id;
@@ -34,6 +35,11 @@ export class OfferEditComponent implements OnInit {
         this.offer = data, console.log(data);
       }
     );
+    this.gotoOfferList();
+  }
+
+  gotoOfferList(){
+    this.router.navigate(['/offers']);
   }
 
 }
