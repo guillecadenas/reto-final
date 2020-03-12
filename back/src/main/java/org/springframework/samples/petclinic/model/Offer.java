@@ -14,8 +14,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
-@Table(name = "offerts")
-public class Offert extends BaseEntity {
+@Table(name = "offers")
+public class Offer extends BaseEntity {
 
 	/**
      * Holds value of property title.
