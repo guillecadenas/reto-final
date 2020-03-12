@@ -57,3 +57,10 @@ INSERT INTO users(username,password,enabled) VALUES ('admin','{noop}admin', true
 INSERT INTO roles (username, role) VALUES ('admin', 'ROLE_OWNER_ADMIN');
 INSERT INTO roles (username, role) VALUES ('admin', 'ROLE_VET_ADMIN');
 INSERT INTO roles (username, role) VALUES ('admin', 'ROLE_ADMIN');
+
+INSERT INTO offers VALUES (1, '2x1 in your consult','If you have more than 1 pet, you can get this dicount' ,50.0, '2020-10-01');
+INSERT INTO offers VALUES (2, '20% in rabies shot','Dont think more on it, you can protect your pet with this offert' ,20.0, '2021-01-01');
+INSERT INTO offers VALUES (3, '30% in dead shot','If you see your pet that cant live anymore, dont think more, just give him a placement end, and with this discount' ,30.0, '2019-01-01');
+INSERT INTO offers VALUES (4, '2x1 in food','Dont worry with the food, with this special offert' ,50.0, '2020-11-24');
+INSERT INTO offers VALUES (5, 'Special chrismas','With the holidays on coming, you need your pets prepared. With this offert, you acn get it. 70% in revision visit' ,70.0, '2020-12-24');
+
