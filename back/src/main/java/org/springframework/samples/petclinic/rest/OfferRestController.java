@@ -1,5 +1,6 @@
 package org.springframework.samples.petclinic.rest;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -30,7 +31,7 @@ public class OfferRestController {
 	
 	
 	@PreAuthorize( "hasRole(@roles.OWNER_ADMIN)" )
-	@RequestMapping(value = "/*/offers", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@RequestMapping(value = "/*", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<List<Offer>> getOffersList() {
 		
 		List<Offer> offers = this.offerServ.findAll();
@@ -53,7 +54,7 @@ public class OfferRestController {
 	}
 
     @PreAuthorize( "hasRole(@roles.OWNER_ADMIN)" )
-	@RequestMapping(value = "", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@RequestMapping(value = "/addOffer", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<Offer> addOffer(@RequestBody @Valid Offer offer, BindingResult bindingResult,
 			UriComponentsBuilder ucBuilder) {
 		BindingErrorsResponse errors = new BindingErrorsResponse();
@@ -101,6 +102,17 @@ public class OfferRestController {
 		}
 		this.offerServ.deleteOffer(offer);
 		return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
+	}
+    
+    @PreAuthorize( "hasRole(@roles.OWNER_ADMIN)" )
+	@RequestMapping(value = "", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@Transactional
+	public ResponseEntity<List<Offer>> getOffersValid() {
+		List<Offer> offers = this.offerServ.findByExpirationDateBefore(new Date());
+		if (offers.isEmpty()) {
+			return new ResponseEntity<List<Offer>>(HttpStatus.NOT_FOUND);
+		}
+		return new ResponseEntity<List<Offer>>(offers, HttpStatus.OK);
 	}
 	
 }

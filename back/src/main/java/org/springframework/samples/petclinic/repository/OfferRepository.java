@@ -12,6 +12,6 @@ public interface OfferRepository extends JpaRepository<Offer, Integer>{
 	
 	Offer findById(int id);
 	
-	List<Offer> findByExpirationDateBefore(Date fechaExpiracion);
+	List<Offer> findByExpirationDateBefore(Date fecha);
 
 }
