@@ -33,6 +33,10 @@ export class OfferService {
     return this.httpClient.put<Offer>(this.entityUrl, offer);
   }
 
+  getValidOffers(){
+    return this.httpClient.get<Offer[]>(`${this.entityUrl}/offersvalid`);
+  }
+
 
   
 }

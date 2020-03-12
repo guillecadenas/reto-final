@@ -9,7 +9,7 @@ import { OffersRoutingModule } from './offers-routing.module';
 
 
 @NgModule({
-  declarations: [OfferAddComponent, OfferListComponent, OfferEditComponent, OfferValidComponent],
+  declarations: [OfferAddComponent, OfferListComponent, OfferEditComponent, ],
   imports: [
     CommonModule,
     FormsModule,

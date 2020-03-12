@@ -25,6 +25,7 @@ import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {WelcomeComponent} from './welcome/welcome.component';
+import {OfferValidComponent} from '../offers/offer-valid/offer-valid.component';
 
 @NgModule({
   imports: [
@@ -33,7 +34,8 @@ import {WelcomeComponent} from './welcome/welcome.component';
   ],
   declarations: [
     PageNotFoundComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    OfferValidComponent,
   ],
   exports: [
     PageNotFoundComponent,

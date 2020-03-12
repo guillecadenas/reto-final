@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { OfferService } from '../offer.service';
+import { Offer } from '../offer';
 
 @Component({
   selector: 'app-offer-valid',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OfferValidComponent implements OnInit {
 
-  constructor() { }
+  offers: Offer[];
+
+  constructor(private offerService: OfferService) { }
 
   ngOnInit() {
+    this.offerService.getValidOffers().subscribe(
+      resp => { this.offers = resp }
+    );
   }
 
 }
