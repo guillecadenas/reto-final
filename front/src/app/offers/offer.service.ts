@@ -16,9 +16,11 @@ export class OfferService {
   getOffers(){
     return this.httpClient.get<Offer[]>(this.entityUrl);
   }
+
   setOffers(offer: Offer){
     return this.httpClient.post<Offer>(this.entityUrl, offer);
   }
+
   getOfferById(id: number){
     return this.httpClient.get<Offer>(`${this.entityUrl}/${id}`);
   }
@@ -26,6 +28,7 @@ export class OfferService {
   deleteOffer(id: number){
     return this.httpClient.delete<Offer>(`${this.entityUrl}/${id}`);
   }
+  
   updateOffer(offer: Offer){
     return this.httpClient.put<Offer>(this.entityUrl, offer);
   }
