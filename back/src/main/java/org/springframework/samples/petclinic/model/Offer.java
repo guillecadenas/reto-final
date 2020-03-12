@@ -45,7 +45,7 @@ public class Offer extends BaseEntity {
     @Temporal(TemporalType.TIMESTAMP)
     @DateTimeFormat(pattern = "yyyy/MM/dd")
     @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy/MM/dd")
-    private Date expiration_date;
+    private Date expirationDate;
 
 	public String getTitle() {
 		return title;
@@ -72,10 +72,10 @@ public class Offer extends BaseEntity {
 	}
 
 	public Date getExpiration_date() {
-		return expiration_date;
+		return expirationDate;
 	}
 
 	public void setExpiration_date(Date expiration_date) {
-		this.expiration_date = expiration_date;
+		this.expirationDate = expiration_date;
 	}
 }
