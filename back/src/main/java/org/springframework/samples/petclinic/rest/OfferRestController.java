@@ -57,7 +57,7 @@ public class OfferRestController {
 
     @PreAuthorize( "hasRole(@roles.OWNER_ADMIN)" )
 	@RequestMapping(value = "/addOffer", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public ResponseEntity<Offer> addOffer(@RequestBody @Valid Offer offer, BindingResult bindingResult,
+	public ResponseEntity<Offer> addOffer(@RequestBody  Offer offer, BindingResult bindingResult,
 			UriComponentsBuilder ucBuilder) {
 		BindingErrorsResponse errors = new BindingErrorsResponse();
 		HttpHeaders headers = new HttpHeaders();

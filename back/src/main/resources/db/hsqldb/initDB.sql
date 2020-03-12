@@ -85,6 +85,6 @@ CREATE TABLE offers (
   id				INTEGER IDENTITY PRIMARY KEY,
   title				VARCHAR(40) NOT NULL,
   description		VARCHAR(255) NOT NULL,
-  discount			DECIMAL NOT NULL,
+  discount			FLOAT NOT NULL,
   expiration_date	DATE NOT NULL
 );

@@ -8,6 +8,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -34,9 +35,9 @@ public class Offer extends BaseEntity {
     /**
      * Holds value of property discount.
      */
-    @NotEmpty
+    @NotNull
     @Column(name = "discount")
-    private double discount;
+    private float discount;
     
     /**
      * Holds value of property date.
@@ -63,11 +64,11 @@ public class Offer extends BaseEntity {
 		this.description = description;
 	}
 
-	public double getDiscount() {
+	public float getDiscount() {
 		return discount;
 	}
 
-	public void setDiscount(double discount) {
+	public void setDiscount(float discount) {
 		this.discount = discount;
 	}
 
