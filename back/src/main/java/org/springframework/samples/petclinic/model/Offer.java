@@ -18,7 +18,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 public class Offer extends BaseEntity {
 
 	/**
-     * Holds value of property title. zdfds
+     * Holds value of property title.
      */
     @NotEmpty
     @Column(name = "title")
@@ -36,7 +36,7 @@ public class Offer extends BaseEntity {
      */
     @NotEmpty
     @Column(name = "discount")
-    private String discount;
+    private double discount;
     
     /**
      * Holds value of property date.
@@ -63,11 +63,11 @@ public class Offer extends BaseEntity {
 		this.description = description;
 	}
 
-	public String getDiscount() {
+	public double getDiscount() {
 		return discount;
 	}
 
-	public void setDiscount(String discount) {
+	public void setDiscount(double discount) {
 		this.discount = discount;
 	}
 
