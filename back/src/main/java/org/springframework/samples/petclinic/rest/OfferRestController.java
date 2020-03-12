@@ -107,7 +107,7 @@ public class OfferRestController {
 	}
     
     @PreAuthorize( "hasRole(@roles.OWNER_ADMIN)" )
-	@RequestMapping(value = "", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@RequestMapping(value = "/offersValid", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@Transactional
 	public ResponseEntity<List<Offer>> getOffersValid() {
 		List<Offer> offers = this.offerServ.findByExpirationDateBefore(new Date());
