@@ -25,12 +25,26 @@ export class OfferListComponent implements OnInit {
       error => this.errorMessage = error as any);
   }
 
+  // Detalles
+  /*
   onSelect(offer: Offer) {
     this.router.navigate(['/offers', offer.id]);
   }
+  */
 
+  // Creación
   addOffer() {
     this.router.navigate(['/offers/add']);
   }
 
+  // Eliminación
+  editOffer(offer_id: number) {
+    this.router.navigate(['/offers', offer_id, 'edit']);
+  }
+
+  // Eliminación
+  deleteOffer(offer_id: number) {
+    if (window.confirm("Are you sure you want to delete the selected offer?"))
+      this.offerService.deleteOffer(offer_id);
+  }
 }

@@ -17,12 +17,14 @@
   
           <tbody>
           <tr *ngFor="let offer of offers">
-            <td class="offerTitle"><a routerLink="/offers/{{offer.id}}" routerLinkActive="active"
-                                         (click)="onSelect(offer)">{{ offer.title }}</a></td>
+            <td>{{ offer.title }}</td>
             <td>{{ offer.description }}</td>
             <td>{{ offer.discount }}</td>
             <td>{{ offer.expirationDate }}</td>
-            <td><button class="btn btn-default">Edit</button> <button class="btn btn-default">Delete</button></td>
+            <td>
+              <button class="btn btn-default" (click)="editOffer(offer.id)">Edit</button>
+              <button class="btn btn-default" (click)="deleteOffer(offer.id)">Delete</button>
+            </td>
           </tr>
           </tbody>
         </table>
