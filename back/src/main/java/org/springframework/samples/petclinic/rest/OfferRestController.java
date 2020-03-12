@@ -24,7 +24,11 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController
+<<<<<<< HEAD
 @CrossOrigin(exposedHeaders = "errors, content-type")
+=======
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
+>>>>>>> front_alberamon
 @RequestMapping("/api/offers")
 public class OfferRestController {
 

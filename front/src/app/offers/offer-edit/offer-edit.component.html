@@ -1,0 +1,51 @@
+<div class="container-fluid" *ngIf="offer != null">
+  <div class="container xd-container">
+    <h2>
+      Edit Offer
+    </h2>
+    <form (ngSubmit)="onSubmit(offerForm)" #offerForm="ngForm" class="form-horizontal">
+      <div class="form-group has-feedback" [class.has-success]="title.dirty && title.valid" [class.has-error]="title.dirty &&  !title.valid">
+        <label for="title" class="col-sm-2 control-label">Title</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="title" [(ngModel)]="offer.title" minlength="2" required name="title" #title="ngModel"/>
+          <span class="glyphicon form-control-feedback" [class.glyphicon-ok]="title.valid" [class.glyphicon-remove]="!title.valid" aria-hidden="true"></span>
+          <span class="help-block" *ngIf="title.dirty && title.hasError('required')">Title name is required</span>
+          <span class="help-block" *ngIf="title.dirty && title.hasError('minlength')">Title must be at least 2 characters long</span>
+        </div>
+      </div>
+      <div class="form-group has-feedback" [class.has-success]="description.dirty && description.valid" [class.has-error]="description.dirty && !description.valid">
+        <label for="description" class="col-sm-2 control-label">Description</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="descripcion" [(ngModel)]="offer.description" name="description" minlength="2" required #description="ngModel"/>
+          <span class="glyphicon form-control-feedback" [class.glyphicon-ok]="description.valid" [class.glyphicon-remove]="!description.valid" aria-hidden="true"></span>
+          <span class="help-block" *ngIf="description.dirty && description.hasError('required')">Description is required</span>
+          <span class="help-block" *ngIf="description.dirty && description.hasError('minlength')">Description must be at least 2 characters long</span>
+        </div>
+      </div>
+      <div class="form-group has-feedback" [class.has-success]="discount.dirty && discount.valid" [class.has-error]="discount.dirty && !discount.valid">
+        <label for="discount" class="col-sm-2 control-label">Discount</label>
+        <div class="col-sm-10">
+          <input type="number" class="form-control" id="discount" [(ngModel)]="offer.discount" name="discount" min="1" max="100" pattern="[0-9]{1,2}" required #discount="ngModel"/>
+          <span class="glyphicon form-control-feedback" [class.glyphicon-ok]="discount.valid" [class.glyphicon-remove]="!discount.valid" aria-hidden="true"></span>
+          <span class="help-block" *ngIf="discount.dirty && discount.hasError('required')">Discount is required</span>
+          <span class="help-block" *ngIf="discount.dirty && discount.hasError('min')">Discount must be at least 1 character number</span>
+          <span class="help-block" *ngIf="discount.dirty && discount.hasError('max')">Discount must be 2 character number at most</span>
+        </div>
+      </div>
+      <div class="form-group has-feedback" [class.has-success]="expirationDate.dirty && expirationDate.valid" [class.has-error]="expirationDate.dirty && !expirationDate.valid">
+        <label for="expirationDate" class="col-sm-2 control-label">ExpirationDate</label>
+        <div class="col-sm-10">
+          <input type="date" class="form-control" id="expirationDate" [(ngModel)]="offer.expirationDate" name="expirationDate" required #expirationDate="ngModel"/>
+          <span class="glyphicon form-control-feedback" [class.glyphicon-ok]="expirationDate.valid" [class.glyphicon-remove]="!expirationDate.valid" aria-hidden="true"></span>
+          <span class="help-block" *ngIf="expirationDate.dirty && expirationDate.hasError('required')">Date is required</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button class="btn btn-default" type="button" (click)="gotoOfferList()">Back</button>
+          <button class="btn btn-default" type="submit" [disabled]="!offerForm.valid">Edit Offer</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

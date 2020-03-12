@@ -1,0 +1,29 @@
+<!-- Plantilla para listado de ofertas (offer-valid)  -->
+
+<div class="container-fluid">
+  <div class="container xd-container">
+    <h2>Valids Offers</h2>
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Discount</th>
+          <th>Expiration Date</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr *ngFor="let offer of offers">
+          <td>{{ offer.title }}</td>
+          <td>{{ offer.description }}</td>
+          <td>{{ offer.discount }}%</td>
+          <td>{{ offer.expirationDate | date:'dd/MM/yyyy' }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+

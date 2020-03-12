@@ -32,6 +32,7 @@ import {VisitsModule} from './visits/visits.module';
 import {PetTypesModule} from './pettypes/pettypes.module';
 import {VetsModule} from './vets/vets.module';
 import {PartsModule} from './parts/parts.module';
+import {OffersModule} from './offers/offers.module';
 import {SpecialtiesModule} from './specialties/specialties.module';
 import {HttpErrorHandler} from './error.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -51,6 +52,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     PetTypesModule,
     VetsModule,
     SpecialtiesModule,
+    OffersModule,
     PartsModule,
     BrowserAnimationsModule,
     AppRoutingModule

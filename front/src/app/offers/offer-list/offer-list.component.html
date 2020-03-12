@@ -1,0 +1,37 @@
+<!-- Plantilla para listado de ofertas (offer-list)  -->
+
+  <div class="container-fluid">
+    <div class="container xd-container">
+      <h2>Offers</h2>
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Discount</th>
+            <th>Expiration Date</th>
+            <th>Actions</th>
+          </tr>
+          </thead>
+  
+          <tbody>
+          <tr *ngFor="let offer of offers">
+            <td>{{ offer.title }}</td>
+            <td>{{ offer.description }}</td>
+            <td>{{ offer.discount }}%</td>
+            <td>{{ offer.expirationDate | date:'dd/MM/yyyy' }}</td>
+            <td>
+              <button class="btn btn-default" (click)="editOffer(offer.id)">Edit</button>
+              <button class="btn btn-default" (click)="deleteOffer(offer.id)">Delete</button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <div>
+          <button class="btn btn-default" (click)="addOffer()">Add Offer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
