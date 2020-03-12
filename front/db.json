@@ -1,0 +1,18 @@
+{
+  "offers": [
+    {
+	  "id": 1,
+	  "title": "Discounted Coronavirus Shot!",
+	  "description": "Just what the name suggests",
+	  "discount": 20,
+	  "expirationDate": "2020-05-19"
+	},
+	{
+	  "id": 2,
+	  "title": "Burger with fries",
+	  "description": "I'm hungry, don't judge me",
+	  "discount": 50,
+	  "expirationDate": "2020-01-05"
+	}
+  ]
+}
