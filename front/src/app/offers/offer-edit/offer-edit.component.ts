@@ -25,8 +25,11 @@ export class OfferEditComponent implements OnInit {
   }
 
   onSubmit(Offer){
+    if(Offer.invalid){
+      return;
+    }
     console.log(this.offer);
-    this.offerService.updateOffer(Offer).subscribe(
+    this.offerService.updateOffer(this.offer).subscribe(
       data => {
         this.offer = data, console.log(data);
       }
