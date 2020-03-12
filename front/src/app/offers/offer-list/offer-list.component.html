@@ -1,3 +1,35 @@
-<p>
-  offer-list works!
-</p>
+<!-- Plantilla para listado de ofertas (offer-list)  -->
+
+  <div class="container-fluid">
+    <div class="container xd-container">
+      <h2>Offers</h2>
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Discount</th>
+            <th>Expiration Date</th>
+            <th>Actions</th>
+          </tr>
+          </thead>
+  
+          <tbody>
+          <tr *ngFor="let offer of offers">
+            <td class="offerTitle"><a routerLink="/offers/{{offer.id}}" routerLinkActive="active"
+                                         (click)="onSelect(offer)">{{ offer.title }}</a></td>
+            <td>{{ offer.description }}</td>
+            <td>{{ offer.discount }}</td>
+            <td>{{ offer.expirationDate }}</td>
+            <td><button class="btn btn-default">Edit</button> <button class="btn btn-default">Delete</button></td>
+          </tr>
+          </tbody>
+        </table>
+        <div>
+          <button class="btn btn-default" (click)="addOffer()">Add Offer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
