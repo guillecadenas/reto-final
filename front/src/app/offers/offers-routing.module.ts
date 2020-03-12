@@ -10,9 +10,9 @@ import {OfferEditComponent} from './offer-edit/offer-edit.component';
 import {OfferAddComponent} from './offer-add/offer-add.component';
 
 const ownerRoutes: Routes = [
-  {path: 'offers', component: OfferValidComponent},
+  {path: 'offers/valid', component: OfferValidComponent},
   {path: 'offers/add', component: OfferAddComponent},
-  {path: 'offers/list', component: OfferListComponent},
+  {path: 'offers', component: OfferListComponent},
   {path: 'offers/:id/edit', component: OfferEditComponent}
 ];
 
