@@ -20,6 +20,10 @@ export class OfferListComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.loadList();
+  }
+
+  loadList(){
     this.offerService.getOffers().subscribe(
       offers => this.offers = offers,
       error => this.errorMessage = error as any);
@@ -45,6 +49,10 @@ export class OfferListComponent implements OnInit {
   // Eliminación
   deleteOffer(offer_id: number) {
     if (window.confirm("Are you sure you want to delete the selected offer?"))
-      this.offerService.deleteOffer(offer_id);
+      this.offerService.deleteOffer(offer_id).subscribe(
+        () => {
+          this.loadList();
+        }
+      );
   }
 }

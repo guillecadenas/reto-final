@@ -19,8 +19,8 @@
           <tr *ngFor="let offer of offers">
             <td>{{ offer.title }}</td>
             <td>{{ offer.description }}</td>
-            <td>{{ offer.discount }}</td>
-            <td>{{ offer.expirationDate }}</td>
+            <td>{{ offer.discount }}%</td>
+            <td>{{ offer.expirationDate | date:'dd/MM/yyyy' }}</td>
             <td>
               <button class="btn btn-default" (click)="editOffer(offer.id)">Edit</button>
               <button class="btn btn-default" (click)="deleteOffer(offer.id)">Delete</button>

@@ -4,5 +4,5 @@ export interface Offer {
   title: string;
   description: string;
   discount: number;
-  expirationDate: Date;
+  expirationDate: string;
 }

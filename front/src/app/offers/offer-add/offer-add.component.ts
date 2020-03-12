@@ -28,7 +28,9 @@ export class OfferAddComponent implements OnInit {
     if(Offer.invalid){
       return;
     }
-    console.log(this.offer);
+    let fecha =  new Date(this.offer.expirationDate);
+    let fechaString = fecha.getFullYear() + '/' + fecha.getMonth() + '/' + fecha.getDay();
+    this.offer.expirationDate = fechaString;
     this.offerService.setOffers(this.offer).subscribe(
       data => {
         this.offer = data, console.log(data);

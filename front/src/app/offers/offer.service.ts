@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class OfferService {
 
-  entityUrl = environment.REST_API_URL + 'offers/'; //  http://localhost:9966/petclinic/api/offers
+  entityUrl = environment.REST_API_URL + 'offers'; //  http://localhost:9966/petclinic/api/offers
 
   constructor(private httpClient: HttpClient) { }
 
@@ -18,7 +18,7 @@ export class OfferService {
   }
 
   setOffers(offer: Offer){
-    return this.httpClient.post<Offer>(this.entityUrl, offer);
+    return this.httpClient.post<Offer>(this.entityUrl+'/addOffer', offer);
   }
 
   getOfferById(id: number){
@@ -26,15 +26,15 @@ export class OfferService {
   }
 
   deleteOffer(id: number){
-    return this.httpClient.delete<Offer>(`${this.entityUrl}/${id}`);
+    return this.httpClient.delete(`${this.entityUrl}/${id}`);
   }
   
   updateOffer(offer: Offer){
-    return this.httpClient.put<Offer>(this.entityUrl, offer);
+    return this.httpClient.put<Offer>(`${this.entityUrl}/${offer.id}`, offer);
   }
 
   getValidOffers(){
-    return this.httpClient.get<Offer[]>(`${this.entityUrl}/offersvalid`);
+    return this.httpClient.get<Offer[]>(`${this.entityUrl}/offersValid`);
   }
 
 

@@ -10,17 +10,22 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class OfferEditComponent implements OnInit {
 
-  offer: Offer;
+  offer: Offer = null;
+  id: number;
 
   constructor(private offerService: OfferService,
               private ruta: ActivatedRoute,
               private router: Router) { }
 
   ngOnInit() {
-    this.offer.id = this.ruta.snapshot.params.id;
-    this.offerService.getOfferById(this.offer.id).subscribe(
+    this.id = this.ruta.snapshot.params.id;
+    this.offerService.getOfferById(this.id).subscribe(
       resp => {
         this.offer = resp;
+
+        let fecha =  new Date(this.offer.expirationDate);
+        let fechaString = fecha.getFullYear() + '/' + fecha.getMonth() + '/' + fecha.getDay();
+        this.offer.expirationDate = fechaString;
       }
     );
   }
@@ -29,10 +34,12 @@ export class OfferEditComponent implements OnInit {
     if(Offer.invalid){
       return;
     }
-    console.log(this.offer);
+    let fecha =  new Date(this.offer.expirationDate);
+    let fechaString = fecha.getFullYear() + '/' + fecha.getMonth() + '/' + fecha.getDay();
+    this.offer.expirationDate = fechaString;
     this.offerService.updateOffer(this.offer).subscribe(
       data => {
-        this.offer = data, console.log(data);
+        this.offer = data;
       }
     );
     this.gotoOfferList();
