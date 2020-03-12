@@ -1,6 +1,5 @@
 package org.springframework.samples.petclinic.service;
 
-import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -40,14 +39,19 @@ public class OfferServiceImpl implements OfferService{
 	}
 
 	@Override
-	public Collection<Offer> findAll() throws DataAccessException {
+	public List<Offer> findAll() throws DataAccessException {
 		return offerRepository.findAll();
 	}
 	
 	@Override
-	public Collection<Offer> findByExpirationDateBefore(Date fechaExpiracion) throws DataAccessException {
+	public List<Offer> findByExpirationDateBefore(Date fechaExpiracion) throws DataAccessException {
 		List<Offer> offers=offerRepository.findByExpirationDateBefore(fechaExpiracion);;
 		return offers;
+	}
+
+	@Override
+	public Offer findOfferById(int id) throws DataAccessException {
+		return offerRepository.findById(id);
 	}
 
 }
