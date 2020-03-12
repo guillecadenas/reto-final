@@ -18,7 +18,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 public class Offer extends BaseEntity {
 
 	/**
-     * Holds value of property title.
+     * Holds value of property title. zdfds
      */
     @NotEmpty
     @Column(name = "title")
