@@ -34,6 +34,7 @@ export class OfferAddComponent implements OnInit {
         this.offer = data, console.log(data);
       }
     );
+    this.gotoOfferList();
   }
 
   gotoOfferList(){
